@@ -10,5 +10,6 @@ public interface UserInfoService {
 
     Long insert(UserInfo info);
 
+    UserInfo findById(Long id);
     int deleteById(Long id);
 }

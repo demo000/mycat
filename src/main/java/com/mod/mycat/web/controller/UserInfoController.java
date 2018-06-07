@@ -28,4 +28,9 @@ public class UserInfoController {
     public Result insert(UserInfo info) {
         return Result.success(userInfoService.insert(info));
     }
+
+    @GetMapping("/get")
+    public Result getById(Long id) {
+        return Result.success(userInfoService.findById(id));
+    }
 }
