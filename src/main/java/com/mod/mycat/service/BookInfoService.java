@@ -8,5 +8,6 @@ public interface BookInfoService {
 
     List<BookInfo> findBookByAuthorId(Long id);
 
-    BookInfo findById(Long id);
+
+    int insert(BookInfo bookInfo);
 }

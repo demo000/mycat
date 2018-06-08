@@ -12,24 +12,24 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from user_info
+    from userinfo
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="getAvgScore" resultType="java.lang.Double">
-    select avg(score) from user_info
+    select avg(score) from userinfo
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from user_info
+    delete from userinfo
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.mod.mycat.domain.UserInfo" >
-    insert into user_info (id, address, name
+    insert into userinfo (id, address, name
       )
     values (#{id,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.mod.mycat.domain.UserInfo" >
-    insert into user_info
+    insert into userinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -54,7 +54,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mod.mycat.domain.UserInfo" >
-    update user_info
+    update userinfo
     <set >
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
@@ -66,7 +66,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mod.mycat.domain.UserInfo" >
-    update user_info
+    update userinfo
     set address = #{address,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}

@@ -4,8 +4,6 @@ import com.mod.mycat.domain.UserInfo;
 import com.mod.mycat.service.UserInfoService;
 import com.mod.mycat.util.Result;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,18 +28,12 @@ public class UserInfoController {
 
     @PostMapping("/insert")
     @ApiOperation("插入操作")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "address", value = "地址"),
-            @ApiImplicitParam(name = "name", value = "名称"),
-            @ApiImplicitParam(name = "score", value = "得分")
-    })
     public Result insert(UserInfo info) {
         return Result.success(userInfoService.insert(info));
     }
 
     @GetMapping("/get")
     @ApiOperation("根据id获取")
-    @ApiImplicitParam(name = "id", value = "用户id")
     public Result getById(Long id) {
         return Result.success(userInfoService.findById(id));
     }
@@ -51,4 +43,6 @@ public class UserInfoController {
     public Result getAvgScore() {
         return Result.success(userInfoService.getAvgScore());
     }
+
+
 }
