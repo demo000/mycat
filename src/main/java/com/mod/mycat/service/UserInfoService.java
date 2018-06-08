@@ -12,4 +12,8 @@ public interface UserInfoService {
 
     UserInfo findById(Long id);
     int deleteById(Long id);
+
+    Double getAvgScore();
+
+
 }

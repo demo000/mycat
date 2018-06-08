@@ -6,26 +6,23 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
 
-/**
- * @author Mr.p
- */
 @Entity
-@Getter
 @Setter
-public class UserInfo implements Serializable {
+@Getter
+public class BookInfo implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
 
-    private String address;
-
     private String name;
 
-    private Double score;
+    private Long author;
 
-
+    @Transient
+    private String authorName;
 
 
 }

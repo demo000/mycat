@@ -38,4 +38,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public int deleteById(Long id) {
         return 0;
     }
+
+    @Override
+    public Double getAvgScore() {
+        return userInfoMapper.getAvgScore();
+    }
 }
