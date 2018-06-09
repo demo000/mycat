@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mod.mycat.mapper.OrderInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mod.mycat.domain.OrderInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="total" property="total" jdbcType="BIGINT" />
+    <result column="userId" property="userid" jdbcType="BIGINT" />
+    <result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="addressId" property="addressid" jdbcType="BIGINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="payStatus" property="paystatus" jdbcType="BIT" />
+    <result column="payno" property="payno" jdbcType="VARCHAR" />
+    <result column="expressNo" property="expressno" jdbcType="VARCHAR" />
+    <result column="express" property="express" jdbcType="VARCHAR" />
+    <result column="updateDate" property="updatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, total, userId, createDate, address, addressId, remark, status, payStatus, 
+    payno, expressNo, express, updateDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from orderinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from orderinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mod.mycat.domain.OrderInfo" >
+    insert into orderinfo (id, name, total, 
+      userId, createDate, address, 
+      addressId, remark, status, 
+      payStatus, payno, expressNo, 
+      express, updateDate)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{total,jdbcType=BIGINT}, 
+      #{userid,jdbcType=BIGINT}, #{createdate,jdbcType=TIMESTAMP}, #{address,jdbcType=VARCHAR}, 
+      #{addressid,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+      #{paystatus,jdbcType=BIT}, #{payno,jdbcType=VARCHAR}, #{expressno,jdbcType=VARCHAR}, 
+      #{express,jdbcType=VARCHAR}, #{updatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mod.mycat.domain.OrderInfo" >
+    insert into orderinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="createdate != null" >
+        createDate,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="addressid != null" >
+        addressId,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="paystatus != null" >
+        payStatus,
+      </if>
+      <if test="payno != null" >
+        payno,
+      </if>
+      <if test="expressno != null" >
+        expressNo,
+      </if>
+      <if test="express != null" >
+        express,
+      </if>
+      <if test="updatedate != null" >
+        updateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressid != null" >
+        #{addressid,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="paystatus != null" >
+        #{paystatus,jdbcType=BIT},
+      </if>
+      <if test="payno != null" >
+        #{payno,jdbcType=VARCHAR},
+      </if>
+      <if test="expressno != null" >
+        #{expressno,jdbcType=VARCHAR},
+      </if>
+      <if test="express != null" >
+        #{express,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mod.mycat.domain.OrderInfo" >
+    update orderinfo
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="createdate != null" >
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressid != null" >
+        addressId = #{addressid,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="paystatus != null" >
+        payStatus = #{paystatus,jdbcType=BIT},
+      </if>
+      <if test="payno != null" >
+        payno = #{payno,jdbcType=VARCHAR},
+      </if>
+      <if test="expressno != null" >
+        expressNo = #{expressno,jdbcType=VARCHAR},
+      </if>
+      <if test="express != null" >
+        express = #{express,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        updateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mod.mycat.domain.OrderInfo" >
+    update orderinfo
+    set name = #{name,jdbcType=VARCHAR},
+      total = #{total,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=BIGINT},
+      createDate = #{createdate,jdbcType=TIMESTAMP},
+      address = #{address,jdbcType=VARCHAR},
+      addressId = #{addressid,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      payStatus = #{paystatus,jdbcType=BIT},
+      payno = #{payno,jdbcType=VARCHAR},
+      expressNo = #{expressno,jdbcType=VARCHAR},
+      express = #{express,jdbcType=VARCHAR},
+      updateDate = #{updatedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

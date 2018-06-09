@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("bookinfo")
+@RequestMapping("/api/bookinfo")
 @Api("bookinfo")
 public class BookInfoController {
 

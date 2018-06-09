@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("userinfo")
+@RequestMapping("/api/userinfo")
 @Api("用户基本信息")
 public class UserInfoController {
 

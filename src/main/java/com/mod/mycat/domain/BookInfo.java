@@ -13,9 +13,7 @@ import java.io.Serializable;
 @Getter
 public class BookInfo implements Serializable {
     @Id
-    @GeneratedValue(generator = "uuidGenerator")
-    @GenericGenerator(name = "uuidGenerator", strategy = "uuid")
-    private String id;
+    private Long id;
 
     private String name;
 

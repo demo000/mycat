@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class BookInfoServiceImpl implements BookInfoService {
@@ -23,7 +22,6 @@ public class BookInfoServiceImpl implements BookInfoService {
 
     @Override
     public int insert(BookInfo bookInfo) {
-        bookInfo.setId(UUID.randomUUID().toString().replace("-", ""));
         return bookInfoMapper.insert(bookInfo);
     }
 }
