@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/bookinfo")
 @Api("bookinfo")
-public class BookInfoController {
+public class BookInfoController extends BaseController {
 
 
     @Autowired
@@ -25,13 +25,13 @@ public class BookInfoController {
     @GetMapping("/queryByAuthor")
     @ApiOperation("根据作者进行查询")
     public Result queryByAuthor(Long authorId) {
-        return Result.success(bookInfoService.findBookByAuthorId(authorId));
+        return success(bookInfoService.findBookByAuthorId(authorId));
     }
 
     @PostMapping("/insert")
     @ApiOperation("插入")
     public Result insert(BookInfo info) {
-        return Result.success(bookInfoService.insert(info));
+        return success(bookInfoService.insert(info));
     }
 
 }

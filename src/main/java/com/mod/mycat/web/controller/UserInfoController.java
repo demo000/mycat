@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/userinfo")
 @Api("用户基本信息")
-public class UserInfoController {
+public class UserInfoController extends BaseController{
 
     @Autowired
     private UserInfoService userInfoService;
@@ -23,25 +23,25 @@ public class UserInfoController {
     @GetMapping("/query")
     @ApiOperation("列表查询")
     public Result queryList() {
-        return Result.success(userInfoService.findAll());
+        return success(userInfoService.findAll());
     }
 
     @PostMapping("/insert")
     @ApiOperation("插入操作")
     public Result insert(UserInfo info) {
-        return Result.success(userInfoService.insert(info));
+        return success(userInfoService.insert(info));
     }
 
     @GetMapping("/get")
     @ApiOperation("根据id获取")
     public Result getById(Long id) {
-        return Result.success(userInfoService.findById(id));
+        return success(userInfoService.findById(id));
     }
 
     @GetMapping("/getAvgScore")
     @ApiOperation("统计平均得分")
     public Result getAvgScore() {
-        return Result.success(userInfoService.getAvgScore());
+        return success(userInfoService.getAvgScore());
     }
 
 

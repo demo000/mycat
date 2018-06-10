@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/productitem")
-public class ProductItemController {
+public class ProductItemController extends BaseController{
     @Autowired
     private ProductItemService productItemService;
 
     @PostMapping("/insert")
     public Result insert(ProductItem item){
-        return Result.success(productItemService.insert(item));
+        return success(productItemService.insert(item));
     }
 }
