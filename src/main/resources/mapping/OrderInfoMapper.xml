@@ -10,8 +10,8 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="addressId" property="addressid" jdbcType="BIGINT" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="BIT" />
-    <result column="payStatus" property="paystatus" jdbcType="BIT" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="payStatus" property="paystatus" jdbcType="INTEGER" />
     <result column="payno" property="payno" jdbcType="VARCHAR" />
     <result column="expressNo" property="expressno" jdbcType="VARCHAR" />
     <result column="express" property="express" jdbcType="VARCHAR" />
@@ -31,7 +31,7 @@
     delete from orderinfo
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.mod.mycat.domain.OrderInfo" >
+  <insert id="insert" parameterType="com.mod.mycat.domain.OrderInfo" useGeneratedKeys="true" keyProperty="id">
     insert into orderinfo (id, name, total, 
       userId, createDate, address, 
       addressId, remark, status, 
@@ -39,8 +39,8 @@
       express, updateDate)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{total,jdbcType=BIGINT}, 
       #{userid,jdbcType=BIGINT}, #{createdate,jdbcType=TIMESTAMP}, #{address,jdbcType=VARCHAR}, 
-      #{addressid,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
-      #{paystatus,jdbcType=BIT}, #{payno,jdbcType=VARCHAR}, #{expressno,jdbcType=VARCHAR}, 
+      #{addressid,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+      #{paystatus,jdbcType=INTEGER}, #{payno,jdbcType=VARCHAR}, #{expressno,jdbcType=VARCHAR},
       #{express,jdbcType=VARCHAR}, #{updatedate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mod.mycat.domain.OrderInfo" >
@@ -115,10 +115,10 @@
         #{remark,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=BIT},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="paystatus != null" >
-        #{paystatus,jdbcType=BIT},
+        #{paystatus,jdbcType=INTEGER},
       </if>
       <if test="payno != null" >
         #{payno,jdbcType=VARCHAR},
@@ -159,10 +159,10 @@
         remark = #{remark,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=BIT},
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="paystatus != null" >
-        payStatus = #{paystatus,jdbcType=BIT},
+        payStatus = #{paystatus,jdbcType=INTEGER},
       </if>
       <if test="payno != null" >
         payno = #{payno,jdbcType=VARCHAR},
@@ -188,8 +188,8 @@
       address = #{address,jdbcType=VARCHAR},
       addressId = #{addressid,jdbcType=BIGINT},
       remark = #{remark,jdbcType=VARCHAR},
-      status = #{status,jdbcType=BIT},
-      payStatus = #{paystatus,jdbcType=BIT},
+      status = #{status,jdbcType=INTEGER},
+      payStatus = #{paystatus,jdbcType=INTEGER},
       payno = #{payno,jdbcType=VARCHAR},
       expressNo = #{expressno,jdbcType=VARCHAR},
       express = #{express,jdbcType=VARCHAR},

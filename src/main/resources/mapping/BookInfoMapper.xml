@@ -21,7 +21,7 @@
     </where>
   </select>
 
-  <insert id="insert" parameterType="com.mod.mycat.domain.BookInfo" >
+  <insert id="insert" parameterType="com.mod.mycat.domain.BookInfo" useGeneratedKeys="true" keyProperty="id" >
     insert into bookinfo (id, name, author
       )
     values (#{id}, #{name}, #{author}

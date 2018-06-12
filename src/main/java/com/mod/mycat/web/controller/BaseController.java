@@ -8,5 +8,12 @@ public class BaseController {
         return Result.success(obj);
     }
 
+    protected Result error(){
+        return Result.error("");
+    }
+    protected Result error(String msg){
+        return Result.error(msg);
+    }
+
 
 }

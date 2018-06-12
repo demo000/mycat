@@ -31,9 +31,9 @@ public class OrderInfo {
 
     private String remark;
 
-    private Boolean status;
+    private Integer status;
 
-    private Boolean paystatus;
+    private Integer paystatus;
 
     private String payno;
 
