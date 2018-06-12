@@ -14,4 +14,15 @@ public interface OrderInfoMapper {
     int updateByPrimaryKeySelective(OrderInfo record);
 
     int updateByPrimaryKey(OrderInfo record);
+
+    /*连接查询*/
+    OrderInfo queryById1(Long id);
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    OrderInfo queryById2(Long id);
+
 }

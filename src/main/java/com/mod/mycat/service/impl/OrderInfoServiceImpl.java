@@ -82,4 +82,13 @@ public class OrderInfoServiceImpl implements OrderInfoService {
         orderItem.setTotal(item.getPrice() * num);
         return orderItem;
     }
+
+    @Override
+    public OrderInfo queryById1(Long id) {
+        return orderInfoMapper.queryById1(id);
+    }
+    @Override
+    public OrderInfo queryById2(Long id) {
+        return orderInfoMapper.queryById2(id);
+    }
 }

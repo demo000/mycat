@@ -3,11 +3,10 @@ package com.mod.mycat.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "orderinfo")
 @Setter
@@ -42,5 +41,8 @@ public class OrderInfo {
     private String express;
 
     private Date updatedate;
+
+    @Transient
+    private List<OrderItem> items;
 
 }

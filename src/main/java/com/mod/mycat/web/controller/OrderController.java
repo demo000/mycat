@@ -31,4 +31,13 @@ public class OrderController extends BaseController {
         }
         return error();
     }
+
+    @PostMapping("/queryById")
+    public Result queryByid(Long id) {
+        return success(orderInfoService.queryById1(id));
+    }
+    @PostMapping("/queryById2")
+    public Result queryByid2(Long id) {
+        return success(orderInfoService.queryById2(id));
+    }
 }
